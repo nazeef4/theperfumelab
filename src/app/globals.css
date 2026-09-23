@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c9a24b;
+  --ivory: #faf6ef;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-gold-200 text-ink;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-lux {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-luxe text-gold-600;
+  }
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-400/70 to-transparent;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.18em] transition-all duration-300;
+  }
+  .btn-gold {
+    @apply btn bg-gradient-to-b from-gold-300 via-gold-500 to-gold-600 text-white shadow-gold-sm hover:-translate-y-0.5 hover:shadow-gold active:translate-y-0;
+  }
+  .btn-dark {
+    @apply btn bg-ink text-ivory hover:-translate-y-0.5 hover:bg-ink-soft;
+  }
+  .btn-ghost {
+    @apply btn border border-gold-500/60 bg-white/50 text-gold-700 hover:border-gold-600 hover:bg-gold-50;
+  }
+  .btn-wa {
+    @apply btn bg-gradient-to-b from-[#2ee07a] to-[#1da851] text-white shadow-[0_8px_24px_-8px_rgba(37,211,102,0.6)] hover:-translate-y-0.5;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink-muted/60 focus:border-gold-400 focus:ring-2 focus:ring-gold-200;
+  }
+  .label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-ink-soft;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider;
+  }
+  .text-gold-gradient {
+    @apply bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+}
+
+/* refined scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: #e3cc92;
+  border-radius: 8px;
+  border: 2px solid var(--ivory);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* subtle luxury noise-free radial glow */
+.gold-glow {
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(201, 162, 75, 0.12), transparent 70%),
+    radial-gradient(40% 35% at 85% 90%, rgba(201, 162, 75, 0.08), transparent 70%);
+}

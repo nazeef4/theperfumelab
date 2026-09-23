@@ -1,0 +1,30 @@
+{
+  "name": "theperfumelab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack e-commerce & promotional website for The Perfume Lab — luxury fragrance storefront with WhatsApp checkout and a secure admin dashboard.",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "lucide-react": "^0.454.0",
+    "mongoose": "^8.7.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}
