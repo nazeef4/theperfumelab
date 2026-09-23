@@ -8,6 +8,7 @@ const productSchema = new Schema(
     name: { type: String, required: true, trim: true },
     slug: { type: String, required: true, unique: true, index: true },
     category: { type: String, default: "Signature", trim: true },
+    gender: { type: String, enum: ["Men", "Women", "Unisex"], default: "Unisex", index: true },
     price: { type: Number, default: 0, min: 0 },
     compareAtPrice: { type: Number, default: null, min: 0 },
     shortDescription: { type: String, default: "" },

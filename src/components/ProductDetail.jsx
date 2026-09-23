@@ -99,7 +99,7 @@ export default function ProductDetail({ product, currency, whatsapp }) {
         {/* Details */}
         <div className="flex flex-col">
           <p className="eyebrow flex items-center gap-3">
-            <span className="hairline !w-10" /> {product.category}
+            <span className="hairline !w-10" /> {product.category} · {product.gender || "Unisex"}
           </p>
           <h1 className="mt-3 font-display text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl">
             {product.name}

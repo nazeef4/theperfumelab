@@ -1,6 +1,7 @@
 import { getStore } from "@/lib/store/factory";
 import ProductCard from "@/components/ProductCard";
 import HeroBanner from "@/components/HeroBanner";
+import GenderShowcase from "@/components/GenderShowcase";
 import Link from "next/link";
 import { ArrowRight, FlaskConical, Layers, Timer } from "lucide-react";
 
@@ -66,6 +67,9 @@ export default async function HomePage() {
           </div>
         )}
       </section>
+
+      {/* For Him / For Her / Unisex */}
+      <GenderShowcase products={products} currency={settings.currency} whatsapp={settings.whatsappNumber} />
 
       {/* Atelier */}
       <section id="atelier" className="gold-glow border-y border-line/70 bg-ivory/60 scroll-mt-24">

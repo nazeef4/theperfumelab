@@ -10,6 +10,7 @@ const SEED_PRODUCTS = [
   {
     name: "Amber Oud",
     category: "Oriental",
+    gender: "Men",
     price: 8500,
     compareAtPrice: 10000,
     shortDescription: "Smoky oud wrapped in warm amber, vanilla and golden resins.",
@@ -21,6 +22,7 @@ const SEED_PRODUCTS = [
   {
     name: "Rose Élixir",
     category: "Floral",
+    gender: "Women",
     price: 7200,
     compareAtPrice: null,
     shortDescription: "Damask rose and peony over a creamy cashmeran bed.",
@@ -32,6 +34,7 @@ const SEED_PRODUCTS = [
   {
     name: "Musk Royale",
     category: "Musky",
+    gender: "Women",
     price: 6500,
     compareAtPrice: null,
     shortDescription: "Pure white musk layered with orris and soft powder.",
@@ -43,6 +46,7 @@ const SEED_PRODUCTS = [
   {
     name: "Noir Intense",
     category: "Woody",
+    gender: "Men",
     price: 9500,
     compareAtPrice: 11000,
     shortDescription: "Black leather, spice and vetiver for the bold.",
@@ -54,6 +58,7 @@ const SEED_PRODUCTS = [
   {
     name: "Citrus d'Or",
     category: "Fresh",
+    gender: "Unisex",
     price: 5800,
     compareAtPrice: null,
     shortDescription: "Sparkling bergamot, neroli and golden amber.",
@@ -65,6 +70,7 @@ const SEED_PRODUCTS = [
   {
     name: "Sultan's Oud",
     category: "Oriental",
+    gender: "Unisex",
     price: 12000,
     compareAtPrice: null,
     shortDescription: "Royal oud, Turkish rose and saffron in an ornate flacon.",
@@ -102,6 +108,7 @@ export async function ensureSeeded(store) {
         normalizeProduct({
           name: p.name,
           category: p.category,
+          gender: p.gender,
           price: p.price,
           compareAtPrice: p.compareAtPrice,
           shortDescription: p.shortDescription,

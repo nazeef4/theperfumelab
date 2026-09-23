@@ -20,6 +20,7 @@ import { formatPrice } from "@/lib/format";
 export default function ProductsManager({ currency, onChange }) {
   const [products, setProducts] = useState(null);
   const [query, setQuery] = useState("");
+  const [genderFilter, setGenderFilter] = useState("All");
   const [editing, setEditing] = useState(null); // null | {} | product
   const [deleting, setDeleting] = useState(null);
   const [busyId, setBusyId] = useState(null);
@@ -77,8 +78,10 @@ export default function ProductsManager({ currency, onChange }) {
     }
   }
 
-  const filtered = (products || []).filter((p) =>
-    (p.name + " " + p.category).toLowerCase().includes(query.toLowerCase())
+  const filtered = (products || []).filter(
+    (p) =>
+      (genderFilter === "All" || (p.gender || "Unisex") === genderFilter) &&
+      (p.name + " " + p.category).toLowerCase().includes(query.toLowerCase())
   );
 
   return (
@@ -91,6 +94,17 @@ export default function ProductsManager({ currency, onChange }) {
           </p>
         </div>
         <div className="flex items-center gap-3">
+          <select
+            value={genderFilter}
+            onChange={(e) => setGenderFilter(e.target.value)}
+            className="field !w-36 !py-2.5"
+            aria-label="Filter by gender"
+          >
+            <option value="All">All genders</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Unisex">Unisex</option>
+          </select>
           <div className="relative">
             <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-muted" />
             <input
@@ -159,7 +173,9 @@ export default function ProductsManager({ currency, onChange }) {
                     {p.active ? "Visible" : "Hidden"}
                   </span>
                 </div>
-                <p className="mt-0.5 text-[11px] uppercase tracking-wider text-gold-600">{p.category}</p>
+                <p className="mt-0.5 text-[11px] uppercase tracking-wider text-gold-600">
+                  {p.category} · {p.gender || "Unisex"}
+                </p>
                 <p className="mt-1 line-clamp-1 text-sm text-ink-muted">{p.shortDescription}</p>
               </div>
 

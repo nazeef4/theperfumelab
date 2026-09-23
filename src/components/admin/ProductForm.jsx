@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { X, Loader2, Save } from "lucide-react";
 import ImageUploader from "./ImageUploader";
 import { toast } from "@/lib/toast";
+import { GENDERS } from "@/lib/models";
 
 const EMPTY = {
   name: "",
   category: "",
+  gender: "Unisex",
   price: "",
   compareAtPrice: "",
   shortDescription: "",
@@ -28,6 +30,7 @@ export default function ProductForm({ product, onClose, onSaved }) {
       setForm({
         name: product.name || "",
         category: product.category || "",
+        gender: product.gender || "Unisex",
         price: product.price ?? "",
         compareAtPrice: product.compareAtPrice ?? "",
         shortDescription: product.shortDescription || "",
@@ -124,6 +127,29 @@ export default function ProductForm({ product, onClose, onSaved }) {
               </datalist>
             </div>
             <div>
+              <label className="label" htmlFor="pf-gender">
+                Gender Section * <span className="normal-case text-ink-muted">(homepage &amp; shop section)</span>
+              </label>
+              <div className="grid grid-cols-3 gap-2" id="pf-gender" role="radiogroup" aria-label="Gender section">
+                {GENDERS.map((g) => (
+                  <button
+                    key={g}
+                    type="button"
+                    role="radio"
+                    aria-checked={form.gender === g}
+                    onClick={() => set("gender", g)}
+                    className={`rounded-xl border px-2 py-3 text-[11px] font-semibold uppercase tracking-wider transition ${
+                      form.gender === g
+                        ? "border-gold-500 bg-gradient-to-b from-gold-400 to-gold-600 text-white shadow-gold-sm"
+                        : "border-line bg-white text-ink-muted hover:border-gold-400 hover:text-gold-700"
+                    }`}
+                  >
+                    {g}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
               <label className="label" htmlFor="pf-price">Price *</label>
               <input
                 id="pf-price"
@@ -137,7 +163,7 @@ export default function ProductForm({ product, onClose, onSaved }) {
                 required
               />
             </div>
-            <div>
+            <div className="sm:col-span-2">
               <label className="label" htmlFor="pf-compare">
                 Compare-at Price <span className="normal-case text-ink-muted">(optional, shows a strike-through)</span>
               </label>

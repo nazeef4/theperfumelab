@@ -102,7 +102,7 @@ export default function ProductCard({ product, currency = "PKR", whatsapp }) {
 
       <div className="px-1.5 pb-1 pt-4">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-600">
-          {product.category}
+          {product.category} · {product.gender || "Unisex"}
         </p>
         <div className="mt-1 flex items-start justify-between gap-3">
           <h3 className="font-display text-[22px] font-semibold leading-tight text-ink transition group-hover:text-gold-700">

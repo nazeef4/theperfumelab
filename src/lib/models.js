@@ -1,11 +1,14 @@
 import { slugify } from "./format";
 import { IMAGE_URL_RE } from "./config";
 
+export const GENDERS = ["Men", "Women", "Unisex"];
+
 export function normalizeProduct(data = {}) {
   const out = {};
   out.name = String(data.name ?? "").trim();
   out.slug = slugify(data.slug || data.name || "");
   out.category = String(data.category ?? "Signature").trim() || "Signature";
+  out.gender = GENDERS.includes(data.gender) ? data.gender : "Unisex";
   out.price = Math.max(0, Number(data.price) || 0);
   out.compareAtPrice =
     data.compareAtPrice === null || data.compareAtPrice === undefined || data.compareAtPrice === ""
@@ -28,6 +31,7 @@ export function productPublic(p) {
     name: p.name,
     slug: p.slug,
     category: p.category,
+    gender: p.gender || "Unisex",
     price: p.price,
     compareAtPrice: p.compareAtPrice ?? null,
     shortDescription: p.shortDescription,
